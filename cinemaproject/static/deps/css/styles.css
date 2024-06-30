@@ -26,14 +26,12 @@ header {
 
 header h1 {
     float: left;
-    margin: 0;
-    padding: 10px 0;
+    margin-left: 20px;
 }
 
 header nav {
     float: right;
     margin-right: 20px;
-    padding-top: 25px;
 }
 
 header nav ul {
@@ -54,20 +52,28 @@ header nav ul li a:hover {
     color: #f4f4f4;
 }
 
-main {
-    padding: 20px 0;
+.promo-banner {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.promo-banner img {
+    max-width: 100%;
+    height: auto;
 }
 
 .movie-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .movie {
     background: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    margin-bottom: 20px;
 }
 
 .movie img {
@@ -95,4 +101,14 @@ main {
 
 .btn:hover {
     background: #555;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Kinopoisk-like Site{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'deps/css/styles.css' %}">
 </head>
 <body>
     <header>
@@ -14,7 +14,7 @@
             <h1>Kinopoisk</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{% url "main:index" %}">Home</a></li>
                     <li><a href="#">Movies</a></li>
                     <li><a href="{% url "main:about" %}">About</a></li>
                     <li><a href="#">Search</a></li>

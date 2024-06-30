@@ -1,19 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<section class="promo-banner">
+    <img src="{% static 'deps/images/promo-banner.jpg' %}" alt="Promo Banner">
+</section>
 <section class="container">
-    <h2>Featured Movies</h2>
+    <h2>Прямо сейчас в кинотеатрах</h2>
     <div class="movie-list">
         <!-- Example movie item -->
         <div class="movie">
-            <img src="movie-poster.jpg" alt="Movie Title">
-            <h3>Movie Title</h3>
-            <p>Description of the movie.</p>
-            <a href="#" class="btn">View Details</a>
+            <img src="{% static 'deps/images/movie-poster.jpg' %}" alt="Movie Title">
+            <h3>Оппенгеймер</h3>
+            <p>"Оппенгеймер" — это предстоящий фильм режиссёра Кристофера Нолана, посвящённый жизни и деятельности Роберта Оппенгеймера, 
+				известного физика и ключевой фигуры в разработке атомной бомбы во время Второй мировой войны. 
+				Фильм планируется как биографическая драма, освещающая сложные этические и научные аспекты проекта Манхэттен.</p>
+            <a href="#" class="btn">Подробнее</a>
         </div>
-        <!-- More movie items can be added here -->
+        <!-- Add more movie items if needed -->
     </div>
 </section>
 {% endblock %}
