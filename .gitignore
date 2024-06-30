@@ -99,7 +99,8 @@ celerybeat-schedule.*
 
 # Environments 
 .env 
-.venv 
+.venv
+.vscode
 venv
 env/ 
 venv/ 
