@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Catalog{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h2>Movie Catalog</h2>
+    <div class="movie-list">
+        {% for movie in movies %}
+        <div class="movie-card">
+            <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="movie-poster">
+            <div class="movie-info">
+                <h3>{{ movie.title }}</h3>
+                <p>{{ movie.description }}</p>
+                <p>Rating: {{ movie.rating }}</p>
+                <a href="#" class="btn">View Details</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if movies.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ movies.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ movies.number }} of {{ movies.paginator.num_pages }}.
+            </span>
+
+            {% if movies.has_next %}
+                <a href="?page={{ movies.next_page_number }}">next</a>
+                <a href="?page={{ movies.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</section>
+{% endblock %}
