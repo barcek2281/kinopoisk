@@ -3,5 +3,6 @@ from .models import Movie
 # Create your views here.
 
 def catalog(request):
-    #movies_list = Movie.get
-    return render(request, 'catalog.html')
+
+    movies_list = Movie.objects.all()
+    return render(request, 'movies/catalog.html')
