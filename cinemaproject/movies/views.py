@@ -5,4 +5,4 @@ from .models import Movie
 def catalog(request):
 
     movies_list = Movie.objects.all()
-    return render(request, 'movies/catalog.html')
+    return render(request, 'movies/catalog.html', {'movies': movies_list})

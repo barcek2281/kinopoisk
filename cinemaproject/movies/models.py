@@ -15,3 +15,6 @@ class Movie(models.Model):
         db_table = 'Фильмы'
         verbose_name = 'Фильм'
         verbose_name_plural = 'Фильмы'
+    
+    def __str__(self):
+        return self.name

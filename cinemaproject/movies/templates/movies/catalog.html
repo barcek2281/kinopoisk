@@ -8,9 +8,9 @@
     <div class="movie-list">
         {% for movie in movies %}
         <div class="movie-card">
-            <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="movie-poster">
+            <img src="{{ movie.avatar.url }}" alt="{{ movie.name }}" class="movie-poster">
             <div class="movie-info">
-                <h3>{{ movie.title }}</h3>
+                <h3>{{ movie.name }}</h3>
                 <p>{{ movie.description }}</p>
                 <p>Rating: {{ movie.rating }}</p>
                 <a href="#" class="btn">View Details</a>
@@ -18,22 +18,6 @@
         </div>
         {% endfor %}
     </div>
-    <div class="pagination">
-        <span class="step-links">
-            {% if movies.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ movies.previous_page_number }}">previous</a>
-            {% endif %}
-
-            <span class="current">
-                Page {{ movies.number }} of {{ movies.paginator.num_pages }}.
-            </span>
-
-            {% if movies.has_next %}
-                <a href="?page={{ movies.next_page_number }}">next</a>
-                <a href="?page={{ movies.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
-    </div>
+    
 </section>
 {% endblock %}
