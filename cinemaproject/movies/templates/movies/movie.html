@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ movie.name }}{% endblock %}
+
+{% block content %}
+<section class="container">
+    <div class="movie-detail">
+        <img src="{{ movie.avatar.url }}" alt="{{ movie.name }}" class="movie-poster">
+        <div class="movie-info">
+            <h2>{{ movie.name }}</h2>
+            <p>{{ movie.description }}</p>
+            <p>Rating: {{ movie.rating }}</p>
+            <p>Release Date: {{ movie.release_date }}</p>
+            <p>Duration: {{ movie.duration }}</p>
+        </div>
+        {% if movie.video_url %}
+        <div class="movie-video">
+            <h3>Watch Trailer</h3>
+            <video controls width="600">
+                <source src="{{ movie.video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
