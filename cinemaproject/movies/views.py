@@ -8,4 +8,4 @@ def catalog(request):
 
 def movie(request, name):
     movie = Movie.objects.filter(name=name)
-    return render(request, 'movies/movie.html', {movie:movie})
+    return render(request, 'movies/movie.html', {'movie': movie})
