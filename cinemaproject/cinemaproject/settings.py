@@ -87,11 +87,11 @@ WSGI_APPLICATION = 'cinemaproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'JArMgVGlCtGdHZmLwpRYCTOPWQgHJxqe',
-        'HOST': 'viaduct.proxy.rlwy.net',
-        'PORT': '30392',
+        'NAME': 'kinopoisk',
+        'USER': 'kinopoisk',
+        'PASSWORD': 'kinopoisk',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

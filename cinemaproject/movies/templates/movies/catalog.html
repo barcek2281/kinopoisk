@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Catalog{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static "deps/css/catalog.css" %}">
 <section class="container">
     <h2>Movie Catalog</h2>
     <div class="movie-list">
@@ -12,8 +14,8 @@
             <div class="movie-info">
                 <h3>{{ movie.name }}</h3>
                 <p>{{ movie.description }}</p>
-                <p>Rating: {{ movie.rating }}</p>
-                <a href="#" class="btn">View Details</a>
+                <p>Рейтинг: {{ movie.rating }}</p>
+                <a href="{% url "movies:movie" movie.slug %}" class="btn">View Details</a>
             </div>
         </div>
         {% endfor %}
