@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="container">
 	<h1>Войдите свой аккаунт</h1>
     <hr>
 
@@ -12,5 +13,9 @@
         {{ form }}
         {% csrf_token %}
         <button type="submit" class="btn btn-success">Ернар гей</button>
+
     </form>
+    <hr>
+    <lo>Вы не зарегистрировались? <a href="{% url 'register' %}" >регистрироваться</a><lo>
+    </div>
 {% endblock %}
