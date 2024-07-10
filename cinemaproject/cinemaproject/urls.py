@@ -19,12 +19,13 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
-#from main import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('', include('main.urls')),
     path('catalog/', include('movies.urls')),
+    path('users/', include('users.urls')),
 ]
 
 if settings.DEBUG:
