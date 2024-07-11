@@ -18,7 +18,7 @@
                 <li><a href="{% url "main:index" %}">Home</a></li>
                 <li><a href="{% url "movies:catalog"%}">Movies</a></li>
                 <li><a href="{% url "main:about" %}">About</a></li>
-
+                <li><a href="#">Search</a></li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
                     <form action="{% url 'logout' %}" method="post">
