@@ -28,6 +28,11 @@ header h1 {
     float: left;
     margin-left: 20px;
 }
+header h2 {
+    float: left;
+    margin-left: 20px;
+
+}
 
 header nav {
     float: right;
@@ -113,5 +118,38 @@ footer {
     width: 100%;
 }
 
+.nav-item {
+    display: inline-block; /* Отображаем элементы списка в одну строку */
+    margin-left: 5px; /* Отступ между элементами списка */
+}
 
+.nav-link {
+    color: #333; /* Цвет текста ссылок */
+    padding: 8px 12px; /* Отступы вокруг текста ссылок */
+    display: inline-block; /* Отображаем элементы списка в одну строку */
+}
 
+.logout-button {
+    background-color: #333333; /* Цвет фона кнопки */
+    color: #ffffff; /* Цвет текста */
+    border: none; /* Убираем границу кнопки */
+    padding: 8px 10px;  /* Отступы вокруг текста кнопки */
+    cursor: pointer; /* Изменяем курсор при наведении */
+    text-decoration: none; /* Убираем подчеркивание текста */
+    font-size: 16px; /* Размер шрифта */
+}
+
+.logout-button:hover {
+    background-color: #333333; /* Цвет фона кнопки при наведении */
+}
+/* styles.css */
+
+.form-group {
+    margin-bottom: 15px; /* Отступ между группами полей */
+}
+
+.form-control {
+    width: 100%; /* Ширина поля для ввода */
+    padding: 10px; /* Поля вокруг текста в поле ввода */
+    font-size: 16px; /* Размер шрифта */
+}
