@@ -6,7 +6,7 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static "deps/css/catalog.css" %}">
 <section class="container">
-    <h2>Movie Catalog</h2>
+    <h2>Catalog</h2>
     <div class="movie-list">
         {% for movie in movies %}
         <div class="movie-card">
@@ -15,11 +15,13 @@
                 <h3>{{ movie.name }}</h3>
                 <p>{{ movie.description }}</p>
                 <p>Рейтинг: {{ movie.rating }}</p>
+                <p>ID: {{ movie.id }}</p>
                 <a href="{% url "movies:movie" movie.slug %}" class="btn">View Details</a>
             </div>
         </div>
         {% endfor %}
     </div>
+
     
 </section>
 {% endblock %}
