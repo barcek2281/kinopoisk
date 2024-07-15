@@ -1,3 +1,5 @@
+catalog css
+/* CSS для карточек фильмов в каталоге */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -5,9 +7,9 @@
 }
 
 .movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Add space between movie cards */
+    display: grid; /* Используем grid для лучшего контроля */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоматический расчет колонок */
+    gap: 20px; /* Пространство между карточками */
 }
 
 .movie-card {
@@ -16,8 +18,7 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(30% - 20px); /* Adjust width to fit three cards per row with spacing */
-    margin: 10px; /* Add margin to create spacing between cards */
+    width: 100%; /* Занимаем всю доступную ширину */
 }
 
 .movie-poster {

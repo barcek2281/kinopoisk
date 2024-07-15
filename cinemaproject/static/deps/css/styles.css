@@ -18,80 +18,81 @@ body {
 }
 
 header {
-    background: #333;
+    background: #000;
     color: #fff;
-    padding-top: 30px;
-    min-height: 70px;
+    padding: 10px 0;
 }
 
-header h1 {
-    float: left;
-    margin-left: 20px;
+header .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
 header h2 {
-    float: left;
-    margin-left: 20px;
-
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
 }
 
 header nav {
-    float: right;
-    margin-right: 20px;
-}
-
-header nav ul {
-    list-style: none;
-}
-
-header nav ul li {
-    display: inline;
-    margin-left: 20px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-header nav ul li a:hover {
-    color: #f4f4f4;
-}
-
-.promo-banner {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.promo-banner img {
-    max-width: 100%;
-    height: auto;
-}
-
-.movie-list {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
-.movie {
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    margin-bottom: 20px;
+header nav .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
 }
 
-.movie img {
-    max-width: 100%;
-    height: auto;
-}
-
-.movie h3 {
+header nav .nav-menu li a {
+    color: #d4d4c5;
+    text-decoration: none;
+    display: flex;
     margin-top: 10px;
+    margin-right: 100px;
 }
 
-.movie p {
-    color: #666;
+header nav .nav-menu .nav-item .nav-link {
+    color: #d4d4c5;
+    text-decoration: none;
+    display: flex;
+    margin-right: 100px;
+}
+
+button.nav-link.logout-button {
+    margin-top: 2px;
+}
+
+header nav .nav-menu li a:hover {
+    color: #fff;
+}
+
+header nav .search-form {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+header nav .search-form .form-control {
+    margin-right: 10px;
+    height: auto; /* Ensure the input takes the full height of the flex container */
+}
+
+header nav .search-form .btn {
+    height: auto; /* Ensure the button takes the full height of the flex container */
+    line-height: normal;
+	margin-bottom: 10px;
+}
+
+header nav .search-form .form-control,
+header nav .search-form button {
+    height: 35px;
+    line-height: 38px;
 }
 
 .btn {
@@ -108,48 +109,145 @@ header nav ul li a:hover {
     background: #555;
 }
 
+.sidebar {
+    display: none;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    display: block;
+}
+
+.content {
+    margin-top: 20px;
+}
+
 footer {
     background: #333;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
+    padding: 5px 0;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
 
 .nav-item {
-    display: inline-block; /* Отображаем элементы списка в одну строку */
-    margin-left: 5px; /* Отступ между элементами списка */
+    display: inline-block;
+    margin-left: 5px;
 }
 
 .nav-link {
-    color: #333; /* Цвет текста ссылок */
-    padding: 8px 12px; /* Отступы вокруг текста ссылок */
-    display: inline-block; /* Отображаем элементы списка в одну строку */
+    color: #333;
+    padding: 8px 12px;
+    display: inline-block;
 }
 
 .logout-button {
-    background-color: #333333; /* Цвет фона кнопки */
-    color: #ffffff; /* Цвет текста */
-    border: none; /* Убираем границу кнопки */
-    padding: 8px 10px;  /* Отступы вокруг текста кнопки */
-    cursor: pointer; /* Изменяем курсор при наведении */
-    text-decoration: none; /* Убираем подчеркивание текста */
-    font-size: 16px; /* Размер шрифта */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 .logout-button:hover {
-    background-color: #333333; /* Цвет фона кнопки при наведении */
+    background-color: #555;
 }
-/* styles.css */
 
 .form-group {
-    margin-bottom: 15px; /* Отступ между группами полей */
+    margin-bottom: 15px;
 }
 
 .form-control {
-    width: 100%; /* Ширина поля для ввода */
-    padding: 10px; /* Поля вокруг текста в поле ввода */
-    font-size: 16px; /* Размер шрифта */
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* for index.html */
+
+/* Additional styles for movie cards on the main page */
+/* Additional styles for movie cards in the catalog */
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.movie {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.movie img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.movie h3 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.movie p {
+    color: #666;
+}
+
+.movie a.btn {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.movie a.btn:hover {
+    background: #555;
+}
+
+/* Styles for rating stars */
+.rating-filter {
+    display: flex;
+    gap: 5px;
+    font-size: 24px;
+}
+
+.rating-filter .star {
+    cursor: pointer;
+}
+
+.rating-filter .star.active {
+    color: gold;
+}
+
+.sidebar .form-group {
+    margin-bottom: 15px;
+}
+
+.sidebar .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sidebar .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
 }
