@@ -11,14 +11,15 @@
         <div class="movie-info">
             <h2>{{ movie.name }}</h2>
             <p>{{ movie.description }}</p>
-            <p>Rating: {{ movie.rating }}</p>
-            <p>Release Date: {{ movie.created_year }}</p>
-            <p>Box office: {{ movie.box_office }}.000.000 $</p>
+            <p>Рейтинг: {{ movie.rating }}</p>
+            <p>Жанр: {{ movie.genre }}</p>
+            <p>Дата релиза: {{ movie.created_year }}</p>
+            <p>Бюджет: {{ movie.box_office }}.000.000 $</p>
         </div>
 
         {% if movie.video_file %}
         <div class="movie-video">
-            <h3>Watch Trailer</h3>
+            <h3>Смотреть трейлер</h3>
             <video controls width="600">
                 <source src="{{ movie.video_file.url }}" type="video/mp4">
                 Your browser does not support the video tag.
