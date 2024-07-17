@@ -1,5 +1,7 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from django.utils import timezone
+from django.conf import settings
 # Create your models here.
 
 class Genre(models.Model):
@@ -14,6 +16,7 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Movie(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название', blank=False)
@@ -35,4 +38,13 @@ class Movie(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+    
+    
     

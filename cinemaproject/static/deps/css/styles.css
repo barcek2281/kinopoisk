@@ -129,12 +129,12 @@ header nav .search-form button {
     margin-top: 20px;
 }
 
-footer {
+#footer {
     background: #333;
     color: #fff;
-    text-align: center;
+    text-align: left;
     padding: 5px 0;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }

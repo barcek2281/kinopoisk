@@ -2,7 +2,7 @@ from django.http import Http404
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.template import context
-from .models import Movie, Genre
+from .models import Movie, Genre, Comment
 # Create your views here.
 
 def catalog(request, page=1):
@@ -13,14 +13,16 @@ def catalog(request, page=1):
     movies = Movie.objects.all()
     genres = Genre.objects.all()
     
+
     if query:
         movies = movies.filter(name__icontains=query)
     if rating:
         movies = movies.filter(rating__gte=rating)
     if selected_genres:
         movies = movies.filter(genre__id__in=selected_genres).distinct()
-    if not movies.exists():
-        raise Http404("No movies found matching the criteria.")
+        
+    # if not movies.exists():
+    #     raise Http404("No movies found matching the criteria.")
     
     paginator = Paginator(movies, 4)
     current_page = paginator.page(page)
@@ -31,9 +33,13 @@ def catalog(request, page=1):
   }
     return render(request, 'movies/catalog.html', context)
 
+
 def movie(request, movie_slug):
     movie = Movie.objects.get(slug=movie_slug)
+    comments = Comment.objects.filter(movie=movie)
+
     context = {
-        'movie': movie
+        'movie': movie,
+        'comments': comments,
   }
     return render(request, 'movies/movie.html', context)
