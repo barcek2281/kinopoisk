@@ -27,16 +27,27 @@
         </div>
     	{% endif %}
 
-        <div id="comments-container">
-            {% for comment in comments %}
-                <div class="comment">
-                <p><strong>{{ comment.user.username }}</strong> ({{ comment.created_at }}):</p>
-                <p>{{ comment.text }}</p>
-                </div>
-            {% empty %}
-                <li>No comments yet.</li>
-            {% endfor %}
-
+    
+        <div class="comments-section">
+            <h2>Комментарии</h2>
+            {% if user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Отправить</button>
+                </form>
+            {% else %}
+                <p>Пожалуйста, <a href="{% url 'login' %}">войдите</a>, чтобы оставить комментарий.</p>
+            {% endif %}
+            <div id="comments-container">
+                <br>
+                {% for comment in comments %}
+                    <div class="comment">
+                        <p><strong>{{ comment.user.username }}</strong> ({{ comment.created_at }}):</p>
+                        <p>{{ comment.text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

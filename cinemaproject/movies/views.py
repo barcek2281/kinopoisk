@@ -1,8 +1,9 @@
 from django.http import Http404
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import context
 from .models import Movie, Genre, Comment
+from .forms import CommentForm
 # Create your views here.
 
 def catalog(request, page=1):
@@ -38,8 +39,20 @@ def movie(request, movie_slug):
     movie = Movie.objects.get(slug=movie_slug)
     comments = Comment.objects.filter(movie=movie)
 
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.movie = movie
+            comment.user = request.user
+            comment.save()
+            #return redirect(f'{movie_slug}')
+    else:
+        form = CommentForm()
+
     context = {
         'movie': movie,
         'comments': comments,
+        'form': form,
   }
     return render(request, 'movies/movie.html', context)
