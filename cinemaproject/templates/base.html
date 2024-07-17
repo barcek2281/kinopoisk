@@ -38,7 +38,8 @@
     </header>
 
     <main class="container">
-        <button class="btn btn-primary" onclick="toggleMenu()">Filters</button>
+        {% comment %} 
+		<button class="btn btn-primary btn-primary-custom" onclick="toggleMenu()">Filters</button>
         <div id="sidebar" class="sidebar">
             <form action="{% url 'movies:catalog' %}" method="get">
                 <div class="form-group">
@@ -68,6 +69,7 @@
                 <button type="submit" class="btn btn-primary">Apply Filters</button>
             </form>
         </div>
+	    {% endcomment %}
         <div class="content">
             {% block content %}{% endblock %}
         </div>
