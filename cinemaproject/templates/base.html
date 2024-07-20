@@ -38,52 +38,12 @@
     </header>
 
     <main class="container">
-        {% comment %} 
-		<button class="btn btn-primary btn-primary-custom" onclick="toggleMenu()">Filters</button>
-        <div id="sidebar" class="sidebar">
-            <form action="{% url 'movies:catalog' %}" method="get">
-                <div class="form-group">
-                    <label for="rating">Rating</label>
-                    <div class="rating-filter">
-                        <input type="hidden" id="rating" name="rating" value="0">
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                        <span class="star" data-value="6">★</span>
-                        <span class="star" data-value="7">★</span>
-                        <span class="star" data-value="8">★</span>
-                        <span class="star" data-value="9">★</span>
-                        <span class="star" data-value="10">★</span>
-                    </div>
-                </div>
-				<div class="form-group">
-                <label for="genres">Genres</label>
-                <select id="genres" name="genres" class="form-control" multiple>
-                    {% for genre in genres %}
-                        <option value="{{ genre.id }}">{{ genre.name }}</option>
-                    {% endfor %}
-                </select>
-            	</div>
-                <button type="submit" class="btn btn-primary">Apply Filters</button>
-            </form>
-        </div>
-	    {% endcomment %}
         <div class="content">
             {% block content %}{% endblock %}
         </div>
     </main>
 
-    
-
-    <script>
-        function toggleMenu() {
-            var sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('active');
-        }
-    </script>
-
+	
     <script src="{% static 'deps/js/stars.js' %}"></script>
 </body>
 </html>

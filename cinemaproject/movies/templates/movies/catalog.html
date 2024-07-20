@@ -9,6 +9,38 @@
 <section class="container">
     <h2>Catalog</h2>
 
+    <button class="btn btn-primary btn-primary-custom" onclick="toggleMenu()">Filters</button>
+    <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+    <div id="sidebar" class="sidebar">
+        <form action="{% url 'movies:catalog' %}" method="get">
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <div class="rating-filter">
+                    <input type="hidden" id="rating" name="rating" value="0">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                    <span class="star" data-value="6">★</span>
+                    <span class="star" data-value="7">★</span>
+                    <span class="star" data-value="8">★</span>
+                    <span class="star" data-value="9">★</span>
+                    <span class="star" data-value="10">★</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="genres">Genres</label>
+                <select id="genres" name="genres" class="form-control" multiple>
+                    {% for genre in genres %}
+                        <option value="{{ genre.id }}">{{ genre.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+        </form>
+    </div>
+
     <div class="movie-list">
         {% for movie in movies %}
         <div class="movie-card">
@@ -24,35 +56,50 @@
         {% endfor %}
     </div>
 
-	<nav aria-label="Page navigation example">
-    	<ul class="pagination justify-content-center my-4">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center my-4">
             <div class="custom-shadow d-flex">
                 <li class="page-item {% if not movies.has_previous %}disabled{% endif %}">
-                    <a class="page-link" href={% if movies.has_previous %}
-					{% url "movies:catalog" movies.previous_page_number %}
-					{% else %}
-					#
-					{% endif %}
-					>Previous</a>
+                    <a class="page-link" href="{% if movies.has_previous %}{% url "movies:catalog" movies.previous_page_number %}{% else %}#{% endif %}">Previous</a>
                 </li>
-				{% for page in movies.paginator.page_range %}
-					{% if page >= movies.number|add:-2 and page <= movies.number|add:2 %}
-						<li class="page-item {% if movies.number == page %}active{% endif %}"	>
-						<a class="page-link" href="{% url "movies:catalog" page %}">{{ page }}</a>
-					</li>
-					{% endif %}
-				{% endfor %}
+                {% for page in movies.paginator.page_range %}
+                    {% if page >= movies.number|add:-2 and page <= movies.number|add:2 %}
+                        <li class="page-item {% if movies.number == page %}active{% endif %}">
+                            <a class="page-link" href="{% url "movies:catalog" page %}">{{ page }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
                 <li class="page-item {% if not movies.has_next %}disabled{% endif %}">
-                    <a class="page-link" href={% if movies.has_next %}
-					{% url "movies:catalog" movies.next_page_number %}
-					{% else %}
-					#
-					{% endif %}
-					>Next</a>
+                    <a class="page-link" href="{% if movies.has_next %}{% url "movies:catalog" movies.next_page_number %}{% else %}#{% endif %}">Next</a>
                 </li>
-        	</div>
+            </div>
         </ul>
-    </nav>                   
-    
+    </nav>
 </section>
+
+<script>
+function toggleMenu() {
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('overlay');
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+}
+
+function closeMenu() {
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('overlay');
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+document.addEventListener('click', function(event) {
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('overlay');
+    var isClickInside = sidebar.contains(event.target) || event.target.matches('.btn-primary-custom');
+
+    if (!isClickInside && sidebar.classList.contains('active')) {
+        closeMenu();
+    }
+});
+</script>
 {% endblock %}
