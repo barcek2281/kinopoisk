@@ -1,0 +1,57 @@
+.custom-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для контейнера */
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 0.25rem; /* Закругленные углы */
+    box-shadow: none;
+    transition: box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Тень при фокусе */
+    border-color: #007bff; /* Цвет рамки при фокусе */
+}
+
+.btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-dark:hover {
+    background-color: #23272b;
+    border-color: #1d2124;
+}
+
+.btn {
+    border-radius: 0.25rem; /* Закругленные углы */
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Стили для заголовка формы */
+h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}

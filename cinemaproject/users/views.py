@@ -1,8 +1,10 @@
+from re import L
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.views import View
+from django.contrib.auth.decorators import login_required
 
-from users.forms import UserCreationForm
+from users.forms import UserCreationForm, UserProfileForm
 
 
 # Create your views here.
@@ -33,3 +35,17 @@ class Register(View):
             'form': form
         }
         return render(request, self.template_name, context)
+    
+@login_required
+def profile_page(request):
+	user = request.user
+    
+	if request.method == 'POST':
+		form = UserProfileForm(request.POST, instance=user)
+		if form.is_valid():
+			form.save()
+			return redirect('profile')
+	else:
+		form = UserProfileForm(instance=user)
+                  
+	return render(request, 'users/profile.html', {'form': form})

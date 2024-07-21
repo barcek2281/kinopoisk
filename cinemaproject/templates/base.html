@@ -25,6 +25,7 @@
                                 <button type="submit" class="nav-link logout-button">Log out</button>
                             </form>
                         </li>
+						<li><a href="{% url 'profile' %}">Profile</a></li>
                     {% else %}
                         <li><a href="{% url 'login' %}">Login</a></li>
                     {% endif %}
