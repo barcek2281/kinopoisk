@@ -29,6 +29,7 @@ class Movie(models.Model):
     budgets = models.BigIntegerField(null=True, blank=True, verbose_name='Бюджет')
     video_file = models.FileField(upload_to='movie_videos', blank=True, null=True, verbose_name='Видео')
     genre = models.ForeignKey(to=Genre, on_delete=models.CASCADE, verbose_name='Жанр', null=True)
+    
 
     class Meta:
         db_table = 'Фильмы'
@@ -45,6 +46,10 @@ class Comment(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     text = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
+    is_positive = models.BooleanField(verbose_name='положительный', default=True)
+
+    def __str__(self):
+        return self.movie.name  + " " + self.user.username
     
     
     

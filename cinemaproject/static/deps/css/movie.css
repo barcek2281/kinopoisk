@@ -92,8 +92,15 @@ body {
     background-color: #e64a19;
 }
 
-.comment {
-    background-color: #f9f9f9;
+.comment-positive {
+    background-color: #a7e49a;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.comment-negative {
+    background-color: #e49a9a;
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ddd;
