@@ -37,7 +37,7 @@ def catalog(request, page=1):
 
 def movie(request, movie_slug):
     movie = Movie.objects.get(slug=movie_slug)
-    comments = Comment.objects.filter(movie=movie)
+    comments = Comment.objects.filter(movie=movie).order_by('-created_at')
 
     if request.method == "POST":
         form = CommentForm(request.POST)

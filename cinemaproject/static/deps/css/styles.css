@@ -54,14 +54,14 @@ header nav .nav-menu li a {
     text-decoration: none;
     display: flex;
     margin-top: 10px;
-    margin-right: 100px;
+    margin-right: 25px;
 }
 
 header nav .nav-menu .nav-item .nav-link {
     color: #d4d4c5;
     text-decoration: none;
     display: flex;
-    margin-right: 100px;
+    margin-right: 25px;
 }
 
 button.nav-link.logout-button {

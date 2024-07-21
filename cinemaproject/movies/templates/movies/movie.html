@@ -42,10 +42,17 @@
             <div id="comments-container">
                 <br>
                 {% for comment in comments %}
-                    <div class="comment">
-                        <p><strong>{{ comment.user.username }}</strong> ({{ comment.created_at }}):</p>
+                    {% if comment.is_positive %}
+                    <div class="comment-positive">
+                        <p><strong>{{ comment.user.username }}</strong> ({{ comment.created_at|date:"d M Y" }}):</p>
                         <p>{{ comment.text }}</p>
                     </div>
+                    {% else %}
+                    <div class="comment-negative">
+                        <p><strong>{{ comment.user.username }}</strong> ({{ comment.created_at| date:"d M Y" }}):</p>
+                        <p>{{ comment.text }}</p>
+                    </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
