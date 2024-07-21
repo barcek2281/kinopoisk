@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
@@ -12,3 +13,14 @@ class UserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         fields = ('username',  'password1', 'password2',)
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'placeholder': 'Введите ваше имя'}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Введите вашу фамилию'}),
+            'username': forms.TextInput(attrs={'placeholder': 'Введите ваше имя пользователя'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Введите ваш email'}),
+        }
